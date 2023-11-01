@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Raleway:wght@300;400;500;700&display=swap');
+
+*{
+    padding:0;
+    margin: 0;
+    font-family: "Black Ops One";
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: calc(60% + 0.6vmin);
+}
+
+body{
+background-size: cover;
+color: white;
+
+}
+#particle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: -1;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+
+a{
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+nav{
+    max-width: 90%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+.nav-logo{
+    width: 3rem;
+    height: 3rem;
+    z-index: 10;
+}
+.nav-logo img{
+    width: 100%;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    gap: 1.4rem;
+}
+ul li{
+    position: relative;
+}
+li::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    transition: width .4s ease-in-out;
+    background-color: white;
+}
+li:hover::after{
+width: 100%;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 90vh;
+}
+.content{
+    flex: max(calc((100% - 2rem) / 2), 400px);
+    padding: 4rem;
+}
+.content h1{
+    font-size: 5rem;
+    z-index:0;
+    color:  #eeeeee
+}
+.content button{
+    padding: 1rem 1.2rem;
+    border: solid 1px white;
+    margin-top: 10px;
+    background-color: inherit;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+.content button::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 0;
+    width: 0%;
+    background-color: white;
+    transition: all .4s ease-in-out;
+}
+
+.content button:hover::after{
+    width: 100%;
+    z-index: -1;
+}
+.content button:hover{
+    color: black;
+}
+.imageWrapper{
+    flex:max(calc((100% - 2rem) / 2), 400px);
+    padding: 3rem;
+    z-index: 10;
+    position: relative;
+    margin: 0px 1rem;
+    animation: hero .8s ease-in infinite alternate;
+}
+.imageWrapper::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 60px;
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 24%, 100% 100%, 25% 100%, 25% 100%, 100% 100%, 100% 0%);
+    background-color: white;
+}
+.imageWrapper::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    clip-path:polygon(0% 0%, 0% 100%, 0 100%, 0 0, 75% 0, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
+    background-color: white;
+}
+.imageWrapper::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 60px;
+    clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 100% 24%, 100% 100%, 25% 100%, 25% 100%, 100% 100%, 100% 0%);
+    background-color: white;
+}
+.imageWrapper img{
+    width: 100%;
+
+}
+
+@keyframes hero {
+    from{
+        transform: translateY(0%);
+    }
+    to{
+transform: translateY(10%);
+    }
+}
+.modalWrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    transform-origin: center;
+    z-index: 10;
+    transform: scale(0);
+    transition: all 0.6s ease-in-out;
+}
+.modalWrapper.active{
+    transform-origin: center;
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.xmark{
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    font-size: 2rem;
+}
+.modal{
+    max-width: 34rem;
+    padding: 2rem 2rem;
+    height: auto;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+}
+.modal h2{
+    color: black;
+    margin-bottom: 2rem;
+}
+.modal form .input-group{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+}
+/* input styling*/
+.modal form .input-group input{
+    padding: .7rem 1rem;
+    border: solid 1px gray;
+    outline: none;
+    transition: all .4s ease-in-out;
+}
+.modal form .input-group input:focus {
+    border:solid 1px #006fdf;
+}
+.modal form .input-group input:focus +  label{
+    color: #006fdf;
+    transform: translateY(-360%);
+}
+
+/* text area styling*/
+.modal form .input-group textarea {
+    border:solid 1px gray;
+    outline: none;
+}
+.modal form .input-group textarea:focus {
+    border:solid 1px #006fdf;
+}
+.modal form .input-group textarea:focus ~ label {
+    transform: translateY(-14rem);
+    color: #006fdf;
+}
+
+.modal form .input-group label.desc {
+    transform: translateX(5%) translateY(-11rem);
+}
+
+.modal form .input-group label{
+    color: gray;
+    transition: all .4s ease-in-out;
+    transform: translateY(-170%) translateX(8%);
+
+}
+.modal .buttons {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+.modal .buttons button{
+    padding: 0.4rem 1rem;
+    border: solid 1px gray;
+    outline: none;
+}
+.modal .buttons button:first-child{
+    background-color: #ffb5b5;
+}
