@@ -91,16 +91,16 @@
             <form>
                 <div class="input-group">
                    
-                    <input type="text" placeholder=" " name="collectionName" />
+                    <input type="text" placeholder="collection Name" onfocus="this.placeholder=''" onmouseleave="this.placeholder='collectionName'" name="collectionName" />
                     <label>collection name</label>
                 </div>
                 <div class="input-group">
-                    <textarea rows="10" placeholder=" " name="collectionName" ></textarea>
+                    <textarea rows="10" placeholder="collection Desc" onfocus="this.placeholder=''" onmouseleave="this.placeholder='collection Desc'"  name="collectionName" ></textarea>
                     <label class="desc">collection description</label>
                 </div>
                 <div class="buttons">
                     <button>save</button>
-                    <button>cancel</button>
+                    <button class="cancelBtn">cancel</button>
                 </div>
             </form>
         </div>
@@ -111,6 +111,7 @@
   <script>
     const xMark = document.querySelector('.xmark');
     const modalWrapper = document.querySelector('.modalWrapper');
+    const cancelBtn=document.querySelector(".cancelBtn");
     xMark.addEventListener('click', (e) => {
       e.preventDefault();
       modalWrapper.classList.remove('active');
@@ -120,5 +121,10 @@
     createBtn.addEventListener('click', (e) => {
       modalWrapper.classList.add('active');
     });
+
+    cancelBtn.addEventListener("click",(e)=>{
+      e.preventDefault()
+      modalWrapper.classList.remove("active")
+    })
   </script>
 </html>

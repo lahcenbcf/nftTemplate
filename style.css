@@ -15,7 +15,7 @@ html{
 body{
 background-size: cover;
 color: white;
-
+min-height: 100vh;
 }
 #particle {
     position: absolute;
@@ -75,7 +75,7 @@ main{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    height: 90vh;
+    min-height: 90vh;
 }
 .content{
     flex: max(calc((100% - 2rem) / 2), 400px);
@@ -212,19 +212,29 @@ transform: translateY(10%);
     border: solid 1px gray;
     outline: none;
     transition: all .4s ease-in-out;
+    z-index: 10;
 }
-.modal form .input-group input:focus {
-    border:solid 1px #006fdf;
+.modal form .input-group label{
+    color: gray;
+    transition: all .4s ease-in-out;
+    transform: translateY(-170%) translateX(3%);
+    z-index: 0;
+
 }
+
 .modal form .input-group input:focus +  label{
     color: #006fdf;
-    transform: translateY(-360%);
+    transform: translateY(-360%) translateX(3%);
 }
 
 /* text area styling*/
 .modal form .input-group textarea {
     border:solid 1px gray;
     outline: none;
+    z-index: 10;
+    &::placeholder{
+        padding: 1rem;
+    }
 }
 .modal form .input-group textarea:focus {
     border:solid 1px #006fdf;
@@ -234,16 +244,7 @@ transform: translateY(10%);
     color: #006fdf;
 }
 
-.modal form .input-group label.desc {
-    transform: translateX(5%) translateY(-11rem);
-}
 
-.modal form .input-group label{
-    color: gray;
-    transition: all .4s ease-in-out;
-    transform: translateY(-170%) translateX(8%);
-
-}
 .modal .buttons {
     display: flex;
     justify-content: end;
